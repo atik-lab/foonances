@@ -6,6 +6,7 @@ class Entries extends CI_Model
 	public $id;
 	public $positive;
 	public $price;
+	public $currency;
 	public $category;
 	public $description;
 	public $creation_date;
@@ -21,9 +22,10 @@ class Entries extends CI_Model
 		return $query->result();
 	}
 
-	public function insert_entry($price, $category, $description = '', $positive = false)
+	public function insert_entry($price, $currency, $category, $description = '', $positive = false)
 	{
 		$this->price = $price;
+		$this->currency = $currency;
 		$this->category = $category;
 		$this->description = $description;
 		$this->positive = $positive;

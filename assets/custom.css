@@ -11,6 +11,10 @@
 	margin-bottom: 25px;
 }
 
+.required {
+	color: #c61f24;
+}
+
 @media (max-width: 400px) {
 	.last-entries table thead tr th:nth-child(3),
 	.last-entries table tbody tr td:nth-child(3),

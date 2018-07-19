@@ -14,6 +14,7 @@ CREATE TABLE `entries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `positive` tinyint(1) NOT NULL,
   `price` float NOT NULL,
+  `currency` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `description` varchar(1023) NOT NULL,
   `creation_date` datetime NOT NULL,
@@ -43,6 +44,27 @@ INSERT INTO `categories` (`id`, `name`) VALUES
   (5, 'Hogar'),
   (6, 'Personal/Ropa'),
   (7, 'Eventos');
+
+--
+-- Currencies
+--
+
+DROP TABLE IF EXISTS `currencies`;
+CREATE TABLE `currencies` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `symbol` varchar(8) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Currencies entries
+--
+
+INSERT INTO `currencies` (`id`, `name`, `symbol`, `price`) VALUES
+  (1, 'Lei', 'Lei', 4.66),
+  (2, 'Euro', '€', 1);
 
 --
 -- Quotes

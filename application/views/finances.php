@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php if ($insert_entry_successful === true): ?>
 			<div class="message">Entrada insertada con éxito.</div>
 		<?php endif; ?>
-		<?php if ($remove_entry_successful === true): ?>
+		<?php if ($delete_entry_successful === true): ?>
 			<div class="message">Entrada eliminada con éxito.</div>
 		<?php endif; ?>
 	</section>
@@ -28,20 +28,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<form action='/finances/insert_entry/' method="post">
 			<div class="row">
 				<div class="six columns">
-					<label for="price">Precio:</label>
+					<label for="price">Precio</label>
 					<input type="number" step="any" id="price" name="price" placeholder="0.00" class="u-full-width"/>
 				</div>
 				<div class="six columns">
-					<label for="category">Categorías:</label>
+					<label for="currency">Moneda</label>
+					<select id="currency" name="currency" class="u-full-width">
+						<?php foreach ($currencies as $id => $currency): ?>
+							<option value="<?php echo $id ?>"><?php echo $currency['name'] ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="six columns">
+					<label for="category">Categorías</label>
 					<select id="category" name="category" class="u-full-width">
 						<?php foreach ($categories as $id => $name): ?>
 							<option value="<?php echo $id ?>"><?php echo $name ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
+				<div class="six columns">
+					<label for="description">Descripción</label>
+					<input type="text" id="description" name="description" placeholder="Profi, Carrefour, Regalo para..." class="u-full-width" />
+				</div>
 			</div>
-			<label for="description">Descripción:</label>
-			<input type="text" id="description" name="description" placeholder="Profi, Carrefour, Regalo para..." class="u-full-width" />
 			<div style="margin-top: 15px">
 				<button type="submit" class="button-primary u-full-width" name="submit">Enviar</button>
 			</div>
@@ -63,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php foreach ($entries as $entry): ?>
 					<tr>
 						<td><?php echo $categories[$entry->category] ?></td>
-						<td><?php echo $entry->price ?></td>
+						<td><?php echo $entry->price ?> <?php echo $currencies[$entry->currency]['symbol'] ?></td>
 						<td><?php echo $entry->description ?></td>
 						<td><?php echo substr($entry->creation_date, 0, 10) ?></td>
 						<td><a href="/finances/delete_entry/<?php echo $entry->id ?>" onclick="return confirm('¿Seguro que quieres eliminar esta entrada?')">Eliminar</a></td>
