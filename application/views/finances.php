@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Foonances</title>
+	<title>Finanzas</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="/assets/normalize.css" media="all">
@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="container">
 	<section class="header">
-		<h1>Foonances &#9825;</h1>
+		<h1>Finanzas</h1>
 	</section>
 	<section class="messages">
 		<?php if ($insert_entry_successful === true): ?>

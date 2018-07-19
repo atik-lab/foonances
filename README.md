@@ -6,11 +6,11 @@ You have to rename config/config.sample.php to config/config.php and config/data
 
 ### Database
 
-1. Use the following commands to create the databse
+1. Use the following commands to create the database
 
 ```
 create database foonances default character set utf8 default collate utf8_general_ci;
-grant all privileges on miorgasmo.* to 'foonances'@'localhost' identified by 'password';
+grant all privileges on foonances.* to 'foonances'@'localhost' identified by 'password';
 ```
 
 2. Run .sql scripts in install folder.
