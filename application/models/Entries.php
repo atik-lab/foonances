@@ -16,9 +16,12 @@ class Entries extends CI_Model
 		$this->load->database();
 	}
 
-	public function get_entries($limit = 20)
+	public function get_last($limit = 20)
 	{
-		$query = $this->db->get('entries', $limit);
+		$this->db->from('entries');
+		$this->db->limit($limit);
+		$this->db->order_by('id', 'desc');
+		$query = $this->db->get();
 		return $query->result();
 	}
 

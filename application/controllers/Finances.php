@@ -32,7 +32,7 @@ class Finances extends CI_Controller
 		$data['currencies'] = $currencies_r;
 		// get entries
 		$this->load->model('entries');
-		$data['entries'] = $this->entries->get_entries();
+		$data['entries'] = $this->entries->get_last();
 		// show messages
 		$data['insert_entry_successful'] = ($from == 'insert_entry') ? true : false;
 		$data['delete_entry_successful'] = ($from == 'delete_entry') ? true : false;
