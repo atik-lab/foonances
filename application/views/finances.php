@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="six columns">
 					<label for="price">Precio:</label>
-					<input type="text" id="price" name="price" placeholder="0.00" class="u-full-width"/>
+					<input type="number" step="any" id="price" name="price" placeholder="0.00" class="u-full-width"/>
 				</div>
 				<div class="six columns">
 					<label for="category">Categorías:</label>
