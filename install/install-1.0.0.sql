@@ -36,13 +36,13 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-  (1, 'Alimentos'),
+  (1, 'Supermercado'),
   (2, 'Transporte'),
   (3, 'Bares and restaurantes'),
-  (4, 'Casa'),
-  (5, 'Eventos'),
-  (6, 'Ropa'),
-  (7, 'Electrónicos');
+  (4, 'Alquiler y consumo'),
+  (5, 'Hogar'),
+  (6, 'Personal/Ropa'),
+  (7, 'Eventos');
 
 --
 -- Quotes
