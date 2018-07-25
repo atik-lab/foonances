@@ -33,6 +33,9 @@ class Finances extends CI_Controller
 		// get entries
 		$this->load->model('entries');
 		$data['entries'] = $this->entries->get_last();
+		// get quote
+		$this->load->model('quote');
+		$data['quote'] = $this->quote->get_random();
 		// show messages
 		$data['insert_entry_successful'] = ($from == 'insert_entry') ? true : false;
 		$data['delete_entry_successful'] = ($from == 'delete_entry') ? true : false;
@@ -76,5 +79,27 @@ class Finances extends CI_Controller
 		// show index page with note
 		$this->load->helper('url');
 		redirect('/finances/index/delete_entry', 'refresh');
+	}
+
+	/**
+	 * View totals
+	 */
+	public function view_totals()
+	{
+		// get categories
+		$this->load->model('categories');
+		$categories = $this->categories->get_all();
+		$categories_r = array();
+		foreach ($categories as $category) {
+			$categories_r[$category->id] = $category->name;
+		}
+		$data['categories'] = $categories_r;
+		// load data
+		$this->load->model('entries');
+		$data['totals_month'] = $this->entries->get_totals_month();
+		$data['totals_category'] = $this->entries->get_totals_category();
+		$this->load->model('entries');
+		// show page
+		$this->load->view('totals', $data);
 	}
 }

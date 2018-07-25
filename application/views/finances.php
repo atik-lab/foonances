@@ -59,6 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</form>
 	</section>
+	<section class="quote">
+		<div class="text"><?php echo $quote->quote ?></div>
+		<div class="author">-- <?php echo $quote->author ?></div>
+	</section>
 	<section class="last-entries">
 		<h2>Últimas 20 entradas</h2>
 		<table class="u-full-width">
@@ -83,6 +87,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</section>
+	<section class="links">
+		<ul>
+			<li class="view-totals"><a href="/finances/view_totals/">Ver totales</a></li>
+			<li class="delete-last-entry"><a href="/finances/delete_entry/<?php echo $entries[0]->id ?>" onclick="return confirm('¿Seguro que quieres eliminar la última entrada?')">Eliminar última entrada</a></li>
+		</ul>
 	</section>
 	</div>
 </div>

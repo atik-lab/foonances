@@ -23,3 +23,23 @@
 		display: none;
 	}
 }
+
+@media (min-width: 401px) {
+	.delete-last-entry {
+		display: none;
+	}
+}
+
+.quote {
+	margin: 0 0 30px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 10px 15px;
+	font-family: monospace;
+	font-size: 14px;
+	background: #f9f9f9;
+}
+
+.quote .author {
+	text-align: right;
+}
