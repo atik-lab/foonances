@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<label for="currency">Moneda</label>
 					<select id="currency" name="currency" class="u-full-width">
 						<?php foreach ($currencies as $id => $currency): ?>
-							<option value="<?php echo $id ?>"><?php echo $currency['name'] ?></option>
+							<option value="<?php echo $id ?>" <?php if ($id == 2): ?> selected="selected"<?php endif; ?>><?php echo $currency['name'] ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
